@@ -1,0 +1,85 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+
+  <div class="postbrick">
+
+
+        {% if user.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_1.jpg" %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\avatar_1.jpg' %}" alt="error">
+        {% elif user.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_2.jpg" %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\avatar_2.jpg' %}" alt="error">
+        {% elif user.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_3.jpg" %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\avatar_3.jpg' %}" alt="error">
+        {% elif user.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_4.jpg" %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\avatar_4.jpg' %}" alt="error">
+        {% elif user.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_5.jpg" %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\avatar_5.jpg' %}" alt="error">
+        {% elif user.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_6.jpg" %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\avatar_6.jpg' %}" alt="error">
+        {% elif user.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_7.jpg" %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\avatar_7.jpg' %}" alt="error">
+        {% elif user.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_8.jpg" %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\avatar_8.jpg' %}" alt="error">
+        {% elif user.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_9.jpg" %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\avatar_9.jpg' %}" alt="error">
+        {% elif user.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_10.jpg" %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\avatar_10.jpg' %}" alt="error">
+        {% else %}
+        <img class="round" src="{% static 'IMAGES\profile_pics\no_profile_pic.jpg' %}" alt="error">
+        {% endif %}
+        <p style="text-align:right;font-size:0.8em;color:grey;">{{ user.date_joined }}</p>
+        <span style="font-size:2em; top:50px; left:280px; position:absolute">{{ user.username }}</span>
+        <span style="font-size:1.6em; top:90px; left:280px; position:absolute"> Profile Id : <strong>{{ user.pk }}</strong></span>
+
+        {% if user.username == request.user.username %}
+          <hr>
+          <form method="POST">
+            {% csrf_token %}
+            {{ u_form.as_p }}
+            {{ p_form.as_p }}
+            <button type="submit" class="btn btn-outline-info">UPDATE</button>
+
+          </form>
+        {% endif %}
+        <hr>
+        <h4 class="postcontent"><center><strong>{{ user.userprofileinfo.bio }}</strong></center></h4>
+
+  </div>
+  {% if messages %}
+
+      {% for message in messages %}
+
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+          <div class="alert alert-success" style="font-size:1.5em">{{ message }}</div>
+
+      {% endfor %}
+
+  {% endif %}
+  <br><p></p><br>
+  <div class="postbrick" style="background-color:#f7f1df">
+    <h2 class="posttitle"style="text-align:left">Posts </h2>
+  </div><br>
+    <ul>
+    {% for post in post_list %}
+      {% if post.posted_by == user.userprofileinfo.user %}
+    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
+
+      <div class="postbrick"style="border-color:grey;width:300px;height:300px;align:left">
+        <h3 class="posttitle"><center><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></center></h3>
+        <hr style="background-color:white" >
+        <p class="postcontent">{{ post.text|safe|truncatechars:100|linebreaks }}</p><br><hr>
+        <div class="date">
+          <p class="postcontent">Published on : {{ post.published_date|date:"D M Y" }}</p>
+        </div>
+        <p><a href="{% url 'post_detail' pk=post.pk %}">Comments : {{ post.approved_comment.count }}</a></p>
+      </div>
+
+    </div>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  <br><p></p><br>
+{% endblock %}

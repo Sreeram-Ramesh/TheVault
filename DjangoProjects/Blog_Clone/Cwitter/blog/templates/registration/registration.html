@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="jumbotron" style="text-align:left">
+    <h1>REGISTER HERE:</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ register_form.as_p }}
+      {{ profile_form.as_p }}
+      <input type="submit" value="REGISTER" class="btn btn-primary btn-lg">
+
+    </form>
+</div>
+{% endblock %}

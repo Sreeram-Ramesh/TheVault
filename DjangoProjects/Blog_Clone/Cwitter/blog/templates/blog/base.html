@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title_block %}{% endblock %}</title>
+
+    <!-- Bootstrap -->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+
+    <!-- Medium Style Editor -->
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'CSS/blog.css' %}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-custom col-xs-12 col-md-12 col-lg-12">
+  <div class="container">
+    <div class="btn-group" style="position: absolute;right:105px;top:7px" >
+      <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #fca503;">
+        <span class="glyphicon glyphicon-menu-hamburger" style="font-size:25px"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="navbar-custom" href="{% url 'about' %}">About</a></li>
+        <li><a class="navbar-custom" href="https://www.github.com">GitHub</a></li>
+        <li role="separator" class="divider"></li>
+          {% if user.is_authenticated %}
+            <li style="color:#023a75;">Welcome {{ request.user.username }}!</li>
+            <li><a href="{% url 'profile' pk=request.user.pk %}">My Profile</a></li>
+            <li>
+
+            <form method="GET" action="{% url 'home' %}" target="_blank" id="form_p">
+
+            <input id="pf" value="" minlength="1" class="form-control mr-sm-2" style="font-family: 'Permanent Marker', cursive; width:120px;font-size:0.8em; bottom:81px" type="search" placeholder="Search Profile..." aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" style="background-color:#d8ded3; border: 1.2px grey solid; position:absolute;right:10px;bottom:82px" type="submit"><span class="glyphicon glyphicon-search" ></span></button>
+
+            </form>
+
+            </li>
+            <li><a href="{% url 'new_post' %}">Create</a></li>
+            <li><a href="{% url 'drafts' %}">Drafts</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+
+
+          {% else %}
+            <li><a href="{% url 'login' %}">LogIn</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+
+          {% endif %}
+      </ul>
+      </div>
+    <ul class="nav navbar-nav">
+      <li><a class="navbar-brand bigbrand navbar-custom" style="bottom:4px" href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span></a></li>
+      <li style="font-size:1.2em;top:7px;left:30px"><strong>BLOG'N</strong></li>
+    </ul>
+  </div>
+</nav><br>
+
+<!-- Content -->
+<div class="content container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="blog_posts">
+        <center>
+        {% block content %}
+        {% endblock %}
+        </center>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+<div style="background-color:black;position:absolute;width:100%;">
+  <br>
+  <h4 style="color:white; position:absolute; left:80px;font-family:fantasy;">Developed by:</h4><br><br><p style="color:white;left:120px;position:absolute">R.SREERAM</p><br><br>
+  <center>
+  <div style="width:150px;"><h4 style="text-align:center;font-family:fantasy;color:white">Hosted by:</h4><br><p style="color:white;text-align:right">...</p></div> <p style="color:black">Dedicated to Sushant Singh Rajput :)</p><br><br><br><br>
+ </center>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  var form       = document.getElementById('form_p'),
+      text_field = document.getElementById('pf');
+
+
+  function submitHandler(){
+    // build the new url and open a new window
+    var url = form.action + "profile/" + text_field.value;
+    window.open(url);
+
+    // prevent form from being submitted because we already
+    // called the request in a new window
+    return false;
+  }
+
+  // attach custom submit handler
+  form.onsubmit = submitHandler;
+</script>
+  </body>
+</html>

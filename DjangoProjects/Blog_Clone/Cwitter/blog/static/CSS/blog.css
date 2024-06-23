@@ -1,0 +1,77 @@
+hr{
+  color: #000000;
+}
+
+.navbar-custom{
+  background-color: #ff8200;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5em;
+  color: #FFFFFF;
+}
+
+.round-icon{
+  border-radius: 30px;
+  border: solid 0.5px #cccac4;
+  height: 40px;
+  width: 40px;
+}
+
+.round{
+  border-radius: 150px;
+  border: solid 2px #cccac4;
+  height: 150px;
+  width: 150px;
+}
+
+.postbrick{
+  background-color: #FFFFFF;
+  border: solid 5px white;
+  text-align: left;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+}
+
+.about{
+  text-align:left;
+  padding-left:15px;
+}
+
+body{
+  background-color: #619df2;
+}
+
+.centerstage{
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.techfont{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5em;
+}
+
+.postdate{
+  text-align: center;
+}
+
+.posttitle{
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+}
+
+.postcontent{
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.btn-primary-outline {
+  background-color: white;
+  border-color: white;
+}
+
+.btn-comment{
+  position: absolute;
+  right: 30px;
+}

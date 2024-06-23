@@ -1,0 +1,114 @@
+{% extends "blog/base.html" %}
+{% load class_name %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+  <form method="GET" class="form-inline" action=".">
+    <input id="id_q" name="q" class="form-control mr-sm-2" style="position:absolute;width:400px;right:10px;bottom:5px;font-family: 'Permanent Marker', cursive;" type="search" placeholder="Search..." aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" style="background-color:#d8ded3; border: 1.2px grey solid;position:absolute;right:10px;bottom:4px" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+  </form>
+</div>
+</nav>
+
+{% if user.is_authenticated %}
+
+{% if query is None %}
+{% for post in post_list %}
+  <div class="postbrick">
+    <h3 class="posttitle"><center><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></center></h3>
+    <hr>
+    <p class="postcontent">{{ post.text|safe|truncatechars:200|linebreaks }}</p><br><hr>
+    <div class="date">
+      <p class="postcontent">Published on : {{ post.published_date|date:"D M Y" }}</p>
+    </div>
+    <a class="btn-comment" href="{% url 'post_detail' pk=post.pk %}">Comments : {{ post.approved_comment.count }}</a>
+    {% if post.posted_by.username == 'Sreeram' %}
+    <p class="postcontent">Posted By:
+    {% if post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_1.jpg" %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_1.jpg' %}" alt="error">
+    {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_2.jpg" %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_2.jpg' %}" alt="error">
+    {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_3.jpg" %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_3.jpg' %}" alt="error">
+    {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_4.jpg" %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_4.jpg' %}" alt="error">
+    {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_5.jpg" %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_5.jpg' %}" alt="error">
+    {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_6.jpg" %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_6.jpg' %}" alt="error">
+    {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_7.jpg" %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_7.jpg' %}" alt="error">
+    {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_8.jpg" %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_8.jpg' %}" alt="error">
+    {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_9.jpg" %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_9.jpg' %}" alt="error">
+    {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_10.jpg" %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_10.jpg' %}" alt="error">
+    {% else %}
+    <img class="round-icon" src="{% static 'IMAGES\profile_pics\no_profile_pic.jpg' %}" alt="error">
+    {% endif %}
+    <strong><a href="{% url 'profile' pk=post.posted_by.pk %}">{{ post.posted_by }}</a></strong> <span class="glyphicon glyphicon-ok-sign" style="color:#359fe6"></span></p>
+    {% else %}
+    <p class="postcontent">Posted By:
+      {% if post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_1.jpg" %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_1.jpg' %}" alt="error">
+      {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_2.jpg" %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_2.jpg' %}" alt="error">
+      {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_3.jpg" %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_3.jpg' %}" alt="error">
+      {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_4.jpg" %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_4.jpg' %}" alt="error">
+      {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_5.jpg" %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_5.jpg' %}" alt="error">
+      {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_6.jpg" %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_6.jpg' %}" alt="error">
+      {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_7.jpg" %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_7.jpg' %}" alt="error">
+      {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_8.jpg" %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_8.jpg' %}" alt="error">
+      {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_9.jpg" %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_9.jpg' %}" alt="error">
+      {% elif post.posted_by.userprofileinfo.profile_pic.url == "IMAGES/profile_pics/avatar_10.jpg" %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\avatar_10.jpg' %}" alt="error">
+      {% else %}
+      <img class="round-icon" src="{% static 'IMAGES\profile_pics\no_profile_pic.jpg' %}" alt="error">
+      {% endif %}
+    <a href="{% url 'profile' pk=post.posted_by.pk %}">{{ post.posted_by }}</a></p>
+    {% endif %}
+  </div><br><p></p><br><p></p>
+{% endfor %}
+{% else %}
+<div class="">
+  <h3 class='my-0 py-0'>{{ count }} results found for <b>"{{ query }}"</b></h3>
+</div>
+
+{% for post in post_list %}
+  <div class="postbrick">
+    <h3 class="posttitle"><center><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></center></h3>
+    <hr>
+    <p class="postcontent">{{ post.text|safe|truncatechars:200|linebreaks }}</p><br><hr>
+    <div class="date">
+      <p class="postcontent">Published on : {{ post.published_date|date:"D M Y" }}</p>
+    </div>
+    <a class="btn-comment" href="{% url 'post_detail' pk=post.pk %}">Comments : {{ post.approved_comment.count }}</a>
+    {% if post.posted_by.username == 'Sreeram' %}
+    <p class="postcontent">Posted By: <strong><a href="{% url 'profile' pk=post.posted_by.pk %}">{{ post.posted_by }}</a></strong> <span class="glyphicon glyphicon-ok-sign" style="color:#359fe6"></span></p>
+    {% else %}
+    <p class="postcontent">Posted By: <a href="{% url 'profile' pk=post.posted_by.pk %}">{{ post.posted_by }}</a></p>
+    {% endif %}
+  </div><br><p></p><br><p></p>
+{% endfor %}
+{% endif %}
+{% else %}
+<div class="postbrick">
+  <center><h2>Please LogIn/Register to view the Blogs!</h2></center><br><br><br>
+</div>
+{% endif %}
+
+
+{% endblock %}

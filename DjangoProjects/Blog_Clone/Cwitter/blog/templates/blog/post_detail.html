@@ -1,0 +1,74 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{post.title}}{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="postbrick">
+  <h1 class="posttitle">{{post.title}}</h1>
+  {% if post.published_date %}
+    <div class="date postdate">
+      {{ post.published_date }}
+    </div>
+  {% else %}
+    <a class="btn btn-primary" href="{% url 'publish_post' pk=post.pk %}">Publish</a>
+  {% endif %}
+
+  <p class="postcontent">{{ post.text|safe|linebreaks }}</p>
+
+{% if not post.published_date is None %}
+  <form style="position:absolute;right:150px;top:10px" action="{% url 'like_post' pk=post.pk %}" method="POST">
+    {% csrf_token %}
+    {% if is_liked %}
+    <button class="btn btn-primary-outline" style="color:red;" value="{{ post.pk }}"><span style="font-size:1.45em" class="glyphicon glyphicon-heart"></span></button>
+    {% else %}
+    <button class="btn btn-primary-outline" style="color:red;" value="{{ post.pk }}"><span style="font-size:1.45em" class="glyphicon glyphicon-heart-empty"></span></button>
+    {% endif %}
+  </form>
+  <span style="position:absolute;right:70px;top:10px;color:red;font-family:cursive;font-size:1.6em" ><strong>{{ post.likes.count }} likes</strong></span>
+{% endif %}
+
+{% if user.is_superuser or user.username == post.posted_by.username %}
+<a class="btn btn-primary" href="{% url 'update_post' pk=post.pk %}">
+  <span class="glyphicon glyphicon-pencil"></span>
+</a>
+<a class="btn btn-primary" href="{% url 'delete_post' pk=post.pk %}">
+  <span class="glyphicon glyphicon-trash"></span>
+</a>
+{% endif %}
+
+</div>
+
+<hr>
+<div class="postbrick">
+  <a class="btn btn-primary btn-comment" href="{% url 'create_comment' pk=post.pk %}">Add Comment</a><br><hr>
+  {% for comment in post.comments.all %}
+    <br>
+      {% if user.is_authenticated and comment.approved_comment %}
+        {{ comment.create_date }}
+        {% if user.is_staff %}
+        <a href="{% url 'disapprove_comment' pk=comment.pk %}">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+        {% endif %}
+
+        <h3>{{comment.text|safe|linebreaks}}</h3>
+        {% if not comment.posted_by == 'Sreeram' %}
+        <p>Posted By:<strong> {{comment.posted_by}}</strong></p>
+        {% else %}
+        <p>Posted By: <strong class="postcontent"> {{ comment.posted_by }}</strong> <span class="glyphicon glyphicon-ok-sign" style="color:#359fe6"></span></p>
+        {% endif %}
+        <hr>
+      {% endif %}
+      {% empty %}
+        <p>No Comments</p>
+  {% endfor %}
+</div>
+{% else %}
+
+<div class="postbrick">
+  <center><h2>Please LogIn/Register to view the Blogs!</h2></center>
+</div>
+
+{% endif %}
+{% endblock %}
