@@ -14,6 +14,8 @@ Here's where I'd like to keep instances of all my past projects. Bac
 
 ## 💻 My YouTube Videos
 
+<p align="center">
+
 [![ICC CWC 2019 Challenge | Bat Bot | SP Robotics Works](https://ytcards.demolab.com/?id=ZK8TBUb46a8&title=ICC+CWC+2019+Challenge+|+Bat+Bot+|+SP+Robotics+Works&lang=en&timestamp=1558981800&background_color=%23222224&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=167 "ICC CWC 2019 Challenge | Bat Bot | SP Robotics Works")](https://www.youtube.com/watch?v=ZK8TBUb46a8)
 [![Codey Level Project | Line Follower | X-Bee Controlled Robot | SP Robotic Works](https://ytcards.demolab.com/?id=GkZaRrC-WaM&title=Codey+Level+Project+|+Line+Follower+|+X+-+Bee+Controlled+Robot+|+SP+Robotic+Works&lang=en&timestamp=1540665000&background_color=%23222224&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=448 "Codey Level Project | Line Follower | X-Bee Controlled Robot | SP Robotic Works")](https://www.youtube.com/watch?v=GkZaRrC-WaM)
 [![Beginner Level Project | All-terrain Vehicle | Collision Avoiding System | SP Robotic Works](https://ytcards.demolab.com/?id=vvj4irkOaBQ&title=Beginner+Level+Project+|+All+-+terrain+Vehicle+|+Collision+Avoiding+System+|+SP+Robotic+Works&lang=en&timestamp=1557167400&background_color=%23222224&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=506 "Beginner Level Project | All-terrain Vehicle | Collision Avoiding System | SP Robotic Works")](https://www.youtube.com/watch?v=vvj4irkOaBQ)
@@ -28,6 +30,7 @@ Here's where I'd like to keep instances of all my past projects. Bac
 [![All-terrain Vehicle | Test Run | Local Park | Good Days](https://ytcards.demolab.com/?id=FjCsBJrXP0M&title=All+-+terrain+Vehicle+|+Test+Run+|+Local+Park+|+Good+Days&lang=en&timestamp=1534812300&background_color=%23222224&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=165 "All-terrain Vehicle | Test Run | Local Park | Good Days")](https://www.youtube.com/watch?v=FjCsBJrXP0M)
 [![Light Follower Bot | Auton Shield | Embedded C](https://ytcards.demolab.com/?id=_PCVKdVKcrg&title=Light+Follower+Bot+|+Auton+Shield+|+Embedded+C&lang=en&timestamp=1544812300&background_color=%23222224&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=70 "Light Follower Bot | Auton Shield | Embedded C")](https://www.youtube.com/watch?v=_PCVKdVKcrg)
 [![Tree Relocation Machine | Innovation day | High School Project](https://ytcards.demolab.com/?id=vqxUrzlsNBI&title=Tree+Relocation+Machine+|+Innovation+day+|+High+School+Project&lang=en&timestamp=1519324200&background_color=%23222224&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=125 "Tree Relocation Machine | Innovation day | High School Project")](https://www.youtube.com/watch?v=vqxUrzlsNBI)
+</p>
 
 <br>
 
@@ -41,7 +44,7 @@ Here's where I'd like to keep instances of all my past projects. Bac
 <br>
 
 <p align="center">
-As a kid, I was always interested in observing mechanical stuff around me and trying to replicate the mechanism. This led me to make prototypes. Both these are some of my initial prototypes. My prototypes had both functional as well as cosmetic parts that gave a complete look to them. The "ISRO Rover" here is an incomplete image, the completed one had threaded rubber tracks helping it to traverse difficult terrains. I presented it in the welcoming ceremony of the "<a href="https://www.thehindu.com/society/the-vahini-sandesh-of-apj-abdul-kalam-carries-a-pavillion-of-inspiring-messages-presentations-and-pictures-of-the-former-president/article19414226.ece">Kalam Sandesh Vahini</a>" before the whole school, live video from my rover was telecasted through a television in the auditorium. I got featured in the school's annual magazine and my efforts were appreciated.
+As a kid, I was always interested in observing mechanical stuff around me and trying to replicate the mechanism. This led me to make prototypes. Both these are some of my initial prototypes. My prototypes had both functional as well as cosmetic parts that gave a complete look to them. The "ISRO Rover" here is an incomplete image, the completed one had threaded rubber tracks helping it to traverse difficult terrains. I presented it in the welcoming ceremony of the "<a href="https://www.thehindu.com/society/the-vahini-sandesh-of-apj-abdul-kalam-carries-a-pavillion-of-inspiring-messages-presentations-and-pictures-of-the-former-president/article19414226.ece">Kalam Sandesh Vahini</a>" before the whole school at 8th grade, live video footage from my rover camera was displayed on a television in the auditorium. I got featured in the school's annual magazine and my efforts were appreciated.
 </p>
 <br>
 
@@ -50,9 +53,3 @@ As a kid, I was always interested in observing mechanical stuff around me and tr
  - [Awesome YouTube Cards](https://www.youtube.com/watch?v=DWFs6aqknqw)
  - [YouTube Cards Github](https://github.com/DenverCoder1/github-readme-youtube-cards?tab=readme-ov-file)
  - [SPRW Community](https://sproboticworks.com/)
-
-
-## Licenses
-
-[![CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-green.svg)](https://creativecommons.org/licenses/by/4.0/)&nbsp;
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
